@@ -1,22 +1,78 @@
 <template>
   <div id="login">
-    login
+    <el-card class="login-card">
+      <div id="title-logo">
+        <img src="../../assets/img/logo_index.png" alt />
+      </div>
+      <el-form :model="formData">
+        <el-form-item prop="cellphoneNum">
+          <el-input v-model="formData.cellphoneNum" placeholder="请输入手机号"></el-input>
+        </el-form-item>
+        <el-form-item prop="identifying">
+          <el-input class="identifying" v-model="formData.identifying" placeholder="请输入验证码"></el-input>
+          <el-button style="float:right;">发送验证码</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-checkbox class="check" v-model="formData.check">我已阅读并同意<a href="#">用户协议</a>和<a href="#">隐私条款</a>
+          </el-checkbox>
+        </el-form-item>
+        <el-form-item>
+          <el-button class="submit" type="primary">登录</el-button>
+        </el-form-item>
+      </el-form>
+    </el-card>
   </div>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      formData: {
+        cellphoneNum: '',
+        identifying: '',
+        check: false
+      }
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
+#login {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../assets/img/login_bg.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  #login {
-    width: 100%;
-    height: 100vh;
-    background-image: url(../../assets/img/login_bg.jpg);
-    background-size: cover;
+  .login-card {
+    width: 400px;
+    height: 350px;
+
+    #title-logo {
+      text-align: center;
+      margin-bottom: 30px;
+
+      img {
+        width: 170px;
+      }
+    }
+
+    .identifying {
+      width: 64%;
+    }
+    .check {
+      color: #ccc;
+      a {
+        color: #3296fa;
+      }
+    }
+    .submit {
+      width: 100%;
+    }
   }
-
+}
 </style>
