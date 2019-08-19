@@ -5,11 +5,11 @@
         <img src="../../assets/img/logo_index.png" alt />
       </div>
       <el-form :model="formData" :rules="formRules" ref="loginForm">
-        <el-form-item prop="cellphoneNum">
-          <el-input v-model="formData.cellphoneNum" placeholder="请输入手机号"></el-input>
+        <el-form-item prop="mobile">
+          <el-input v-model="formData.mobile" placeholder="请输入手机号"></el-input>
         </el-form-item>
-        <el-form-item prop="identifying">
-          <el-input class="identifying" v-model="formData.identifying" placeholder="请输入验证码"></el-input>
+        <el-form-item prop="code">
+          <el-input class="code" v-model="formData.code" placeholder="请输入验证码"></el-input>
           <el-button style="float:right;">发送验证码</el-button>
         </el-form-item>
         <el-form-item prop="check">
@@ -37,16 +37,16 @@ export default {
     }
     return {
       formData: {
-        cellphoneNum: '',
-        identifying: '',
+        mobile: '',
+        code: '',
         check: false
       },
       formRules: {
-        cellphoneNum: [
+        mobile: [
           { required: true, message: '手机号不能为空', trigger: 'blur' },
           { pattern: /^1[345678]\d{9}$/, message: '输入的手机号格式不正确', trigger: 'blur' }
         ],
-        identifying: [
+        code: [
           { required: true, message: '验证码不能为空', trigger: 'blur' },
           { pattern: /^\d{6}$/, message: '请输入6位数字验证码', trigger: 'blur' }
         ],
@@ -61,6 +61,16 @@ export default {
       this.$refs.loginForm.validate(isOK => {
         if (isOK) {
           console.log('true')
+          this.$axios({
+            url: '/authorizations',
+            method: 'post',
+            data: this.formData
+          }).then(result => {
+            window.localStorage.setItem('user-info', JSON.stringify(result.data.data))
+            this.$router.push('./home')
+          }).catch(error => {
+            console.log(error)
+          })
         }
       })
     }
@@ -92,7 +102,7 @@ export default {
       }
     }
 
-    .identifying {
+    .code {
       width: 64%;
     }
     .check {
