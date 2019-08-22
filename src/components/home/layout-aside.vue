@@ -13,20 +13,20 @@
           <i class="el-icon-s-order"></i>
           <span>内容管理</span>
         </template>
-        <el-menu-item index="/publishArticle">发布文章</el-menu-item>
-        <el-menu-item index="/containerList">内容列表</el-menu-item>
-        <el-menu-item index="/commentList">评论列表</el-menu-item>
-        <el-menu-item index="/materialManage">素材管理</el-menu-item>
+        <el-menu-item index="/home/publishArticle">发布文章</el-menu-item>
+        <el-menu-item index="/home/containerList">内容列表</el-menu-item>
+        <el-menu-item index="/home/commentList">评论列表</el-menu-item>
+        <el-menu-item index="/home/materialManage">素材管理</el-menu-item>
       </el-submenu>
       <el-submenu index="fans">
         <template slot="title">
           <i class="el-icon-s-custom"></i>
           <span>粉丝管理</span>
         </template>
-        <el-menu-item index="/visibleData">图文数据</el-menu-item>
-        <el-menu-item index="/fansSituation">粉丝概况</el-menu-item>
-        <el-menu-item index="/personas">粉丝画像</el-menu-item>
-        <el-menu-item index="/fansList">粉丝列表</el-menu-item>
+        <el-menu-item index="/home/visibleData">图文数据</el-menu-item>
+        <el-menu-item index="/home/fansSituation">粉丝概况</el-menu-item>
+        <el-menu-item index="/home/fansModel">粉丝画像</el-menu-item>
+        <el-menu-item index="/home/fansList">粉丝列表</el-menu-item>
       </el-submenu>
 
       <el-menu-item index="/account">
@@ -42,18 +42,14 @@ export default {}
 </script>
 
 <style lang="less" scoped>
-.layout-aside {
-  height: 100vh;
-  background-color: #323745;
-  .title {
-    text-align: center;
-    height: 60px;
-    line-height: 60px;
-    background-color: #2e2f32;
-    .logo {
-      width: 100px;
-      vertical-align: middle;
-    }
+.title {
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  background-color: #2e2f32;
+  .logo {
+    width: 100px;
+    vertical-align: middle;
   }
 }
 </style>

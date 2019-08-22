@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main">
     主页
   </div>
 </template>
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 
 </style>

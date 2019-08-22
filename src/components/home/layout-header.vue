@@ -75,6 +75,7 @@ export default {
       cursor: pointer;
       img {
         width: 40px;
+        height: 40px;
         border-radius: 50%;
         vertical-align: middle;
         margin-right: 10px;

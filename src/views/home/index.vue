@@ -8,7 +8,7 @@
         <el-header>
           <layout-header></layout-header>
         </el-header>
-        <el-main>
+        <el-main style="background-color: #f2f3f5;">
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -22,7 +22,7 @@ export default {}
 
 <style lang="less" scoped>
 .layout-aside {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #323745;
   .title {
     text-align: center;

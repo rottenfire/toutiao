@@ -19,7 +19,12 @@ export default new Router({
       children: [
         {
           path: '',
+          name: 'main',
           component: Main
+        },
+        {
+          path: 'commentList',
+          component: () => import('./views/container/comment.vue')
         }
       ]
     },
