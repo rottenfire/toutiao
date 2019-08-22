@@ -14,7 +14,8 @@
         </el-form-item>
         <el-form-item class="check" prop="check">
           <el-checkbox v-model="formData.check">我已阅读并同意</el-checkbox>
-          <span class="agree">用户协议</span>和<span class="agree">隐私条款</span>
+          <span class="agree">用户协议</span>和
+          <span class="agree">隐私条款</span>
         </el-form-item>
         <el-form-item>
           <el-button class="submit" type="primary" @click="verification">登录</el-button>
@@ -69,21 +70,13 @@ export default {
             url: '/authorizations',
             method: 'post',
             data: this.formData
+          }).then(result => {
+            window.localStorage.setItem(
+              'user-info',
+              JSON.stringify(result.data)
+            )
+            this.$router.push('./home')
           })
-            .then(result => {
-              window.localStorage.setItem(
-                'user-info',
-                JSON.stringify(result.data.data)
-              )
-              this.$router.push('./home')
-            })
-            .catch(error => {
-              console.log(error)
-              this.$message({
-                message: '验证码错误，请重新输入',
-                type: 'warning'
-              })
-            })
         }
       })
     }

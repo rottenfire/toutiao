@@ -34,14 +34,12 @@ export default {
   },
   methods: {
     getUserInfo () {
-      let token = JSON.parse(window.localStorage.getItem('user-info')).token
-      token && this.$axios({
-        url: '/user/profile',
-        headers: { 'Authorization': `Bearer ${token}` }
+      this.$axios({
+        url: '/user/profile'
       }).then(result => {
         console.log(result)
-        this.username = result.data.data.name
-        this.userAvatar = result.data.data.photo
+        this.username = result.data.name
+        this.userAvatar = result.data.photo
       }).catch(err => {
         console.log(err)
       })
