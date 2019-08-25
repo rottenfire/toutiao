@@ -5,7 +5,7 @@
         <i class="el-icon-s-unfold"></i>
         <span>江苏传智播客教育科技股份有限公司</span>
       </el-col>
-      <el-col class="rightSide" :span="3">
+      <el-col class="rightSide" :span="4">
         <el-dropdown @command="handleCommand" trigger="click">
           <span class="el-dropdown-link">
             <img :src="userAvatar ? userAvatar: defaultAvatar" alt />
@@ -37,7 +37,6 @@ export default {
       this.$axios({
         url: '/user/profile'
       }).then(result => {
-        console.log(result)
         this.username = result.data.name
         this.userAvatar = result.data.photo
       }).catch(err => {

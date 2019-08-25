@@ -24,7 +24,15 @@ export default new Router({
         },
         {
           path: 'commentList',
-          component: () => import('./views/container/comment.vue')
+          component: () => import('./views/comment/comment.vue')
+        },
+        {
+          path: '/home/materialManage',
+          component: () => import('./views/material/material.vue')
+        },
+        {
+          path: '/home/containerList',
+          component: () => import('./views/content/content.vue')
         }
       ]
     },

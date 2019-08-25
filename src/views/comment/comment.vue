@@ -28,7 +28,14 @@
       </el-table-column>
     </el-table>
     <el-row type="flex" justify="center">
-      <el-pagination @current-change="changePage" background layout="prev, pager, next" :current-page="page.currentPage" :page-size="page.perPage" :total="page.total"></el-pagination>
+      <el-pagination
+        @current-change="changePage"
+        background
+        layout="prev, pager, next"
+        :current-page="page.currentPage"
+        :page-size="page.perPage"
+        :total="page.total"
+      ></el-pagination>
     </el-row>
   </el-card>
 </template>
